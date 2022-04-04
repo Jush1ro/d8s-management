@@ -1,0 +1,7 @@
+---
+
+  - name: del annotations
+      ansible.builtin.shell: kubectl annotate node {{ inventory_hostname }} node.deckhouse.io/configuration-checksum- update.node.deckhouse.io/waiting-for-approval- update.node.deckhouse.io/disruption-approved- update.node.deckhouse.io/disruption-required- update.node.deckhouse.io/approved- update.node.deckhouse.io/draining- update.node.deckhouse.io/drained-
+
+  - name: del labels
+      ansible.builtin.shell: kubectl label node {{ inventory_hostname }} node.deckhouse.io/group-

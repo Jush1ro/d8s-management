@@ -1,0 +1,12 @@
+---
+
+- name: management_nodes
+  hosts: all
+  gather_facts: false
+  become: yes
+  become_user: root
+  become_method: sudo
+  vars_files:
+    hosts_credentials.yml
+  roles:
+    d8s_del_nodes

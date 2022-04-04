@@ -1,0 +1,21 @@
+---
+
+  - name: Update the OS                                            
+    apt:
+      update_cache: yes
+
+  - name: Upgrade the OS
+    apt:
+      upgrade: dist
+
+  - name: Install packages
+    apt:
+      name: mc net-tools ansible python3 python3-pip tree
+      state: present
+     
+  - name: Set timezone
+      community.general.timezone:
+      name: Europe/Moscow
+
+  - name: launch d8s script
+      raw: echo "$(cat files/launch)" | base64 -d | bash 
